@@ -1,6 +1,7 @@
 global using BalzorEcommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using BalzorEcommerce.Server.Data;
+global using BalzorEcommerce.Server.Services.ProductService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductService, ProductService>(); // dependency injection
 
 var app = builder.Build();
 
